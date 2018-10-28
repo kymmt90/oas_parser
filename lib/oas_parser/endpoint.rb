@@ -65,7 +65,7 @@ module OasParser
 
     def response_by_code(code)
       definition = raw['responses'][code]
-      raise StandardError.new('So such response exists') unless definition
+      raise StandardError.new("No such response exists: '#{code}'") unless definition
       OasParser::Response.new(self, code, definition)
     end
 
@@ -82,7 +82,7 @@ module OasParser
 
     def callback_by_name(name)
       definition = raw['callbacks'][name]
-      raise StandardError.new('So such callback exists') unless definition
+      raise StandardError.new("No such callback exists: '#{name}'") unless definition
       OasParser::Callback.new(self, name, definition)
     end
 

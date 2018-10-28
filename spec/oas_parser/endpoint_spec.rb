@@ -200,7 +200,7 @@ RSpec.describe OasParser::Endpoint do
       it 'raises an exception' do
         expect {
           @endpoint.response_by_code('foo')
-        }.to raise_error(StandardError, 'So such response exists')
+        }.to raise_error(StandardError, "No such response exists: 'foo'")
       end
     end
   end
@@ -234,7 +234,7 @@ RSpec.describe OasParser::Endpoint do
       it 'raises an exception' do
         expect {
           @endpoint.callback_by_name('foo')
-        }.to raise_error(StandardError, 'So such callback exists')
+        }.to raise_error(StandardError, "No such callback exists: 'foo'")
       end
     end
   end
